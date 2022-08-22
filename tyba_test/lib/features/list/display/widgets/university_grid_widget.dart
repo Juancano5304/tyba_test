@@ -53,36 +53,46 @@ class UniversityGridWidget extends StatelessWidget {
                 ],
               ),
             )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                if (universityModel.image == null)
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 32,
-                    child: Text(
-                      getInitials(universityModel.name),
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
+          : SizedBox(
+              height: 51,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  if (universityModel.image == null)
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 32,
+                      child: Text(
+                        getInitials(universityModel.name),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                    )
+                  else
+                    ClipOval(
+                      child: Image.file(
+                        File(universityModel.image!),
+                        fit: BoxFit.cover,
+                        height: 70,
+                        width: 70,
                       ),
                     ),
-                  )
-                else
-                  Image.file(File(universityModel.image!)),
-                const SizedBox(
-                  height: 16,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    universityModel.name,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  const SizedBox(
+                    height: 16,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Text(
+                      universityModel.name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
             ),
     );
   }

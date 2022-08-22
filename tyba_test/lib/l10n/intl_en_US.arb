@@ -1,5 +1,6 @@
 {
     "@@locale": "en_US",
+    "cancel": "Cancel",
     "collegesList": "List of Colleges",
     "country": "Country:",
     "countryCode": "Country Code:",
@@ -9,5 +10,6 @@
     "photo": "Photo",
     "pickAnImage": "Pick an Image",
     "studentsCount": "Add Students",
+    "submit": "Submit",
     "webPages": "Web Pages"
 }
