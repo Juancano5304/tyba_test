@@ -59,6 +59,96 @@ class AppLocalizations {
       args: [],
     );
   }
+
+  /// `Country:`
+  String get country {
+    return Intl.message(
+      'Country:',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country Code:`
+  String get countryCode {
+    return Intl.message(
+      'Country Code:',
+      name: 'countryCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Domains`
+  String get domains {
+    return Intl.message(
+      'Domains',
+      name: 'domains',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery`
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name:`
+  String get name {
+    return Intl.message(
+      'Name:',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Photo`
+  String get photo {
+    return Intl.message(
+      'Photo',
+      name: 'photo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick an Image`
+  String get pickAnImage {
+    return Intl.message(
+      'Pick an Image',
+      name: 'pickAnImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Students`
+  String get studentsCount {
+    return Intl.message(
+      'Add Students',
+      name: 'studentsCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Web Pages`
+  String get webPages {
+    return Intl.message(
+      'Web Pages',
+      name: 'webPages',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,4 +1,13 @@
 {
     "@@locale": "en_US",
-    "collegesList": "List of Colleges"
+    "collegesList": "List of Colleges",
+    "country": "Country:",
+    "countryCode": "Country Code:",
+    "domains": "Domains",
+    "gallery": "Gallery",
+    "name": "Name:",
+    "photo": "Photo",
+    "pickAnImage": "Pick an Image",
+    "studentsCount": "Add Students",
+    "webPages": "Web Pages"
 }

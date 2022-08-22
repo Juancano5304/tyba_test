@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/navigation/named_routes.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/models/university_model.dart';
 import '../provider/universities_list_provider.dart';
@@ -71,9 +72,19 @@ class _ListPageState extends State<ListPage> {
                   mainAxisSpacing: 20,
                 ),
                 itemBuilder: (BuildContext context, int index) =>
-                    UniversityGridWidget(
-                  universityModel: universitiesList![index],
-                  viewType: viewType,
+                    GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      NamedRoutes.details,
+                      arguments: <String, dynamic>{
+                        'university': universitiesList![index]
+                      },
+                    );
+                  },
+                  child: UniversityGridWidget(
+                    universityModel: universitiesList![index],
+                    viewType: viewType,
+                  ),
                 ),
               )
             : const Center(

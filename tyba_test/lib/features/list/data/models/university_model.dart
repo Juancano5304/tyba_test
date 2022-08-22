@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, overridden_fields, avoid_dynamic_calls
+// ignore_for_file: must_be_immutable, overridden_fields, avoid_dynamic_calls, annotate_overrides
 
 import '../../domain/entities/university.dart';
 
@@ -26,7 +26,10 @@ class UniversityModel extends University {
             .map((dynamic domain) => domain as String)
             .toList(),
         country: json[_AttributeKeys.country].toString(),
+        image: json[_AttributeKeys.image]?.toString(),
         stateProvince: json[_AttributeKeys.stateProvince]?.toString(),
+        studentsCount:
+            int.tryParse(json[_AttributeKeys.studentsCount].toString()),
         webPages: (json[_AttributeKeys.webPages] as List<dynamic>)
             .map((dynamic webPage) => webPage as String)
             .toList(),
@@ -45,26 +48,13 @@ class UniversityModel extends University {
     return result;
   }
 
-  @override
   final String alphaTwoCode;
-
-  @override
   final List<String> domains;
-
-  @override
   final String country;
-
   String? image;
-
-  @override
   final String? stateProvince;
-
   int? studentsCount;
-
-  @override
   final List<String> webPages;
-
-  @override
   final String name;
 
   @override
@@ -74,6 +64,7 @@ class UniversityModel extends University {
         _AttributeKeys.domains: domains,
         _AttributeKeys.image: image,
         _AttributeKeys.name: name,
+        _AttributeKeys.stateProvince: stateProvince,
         _AttributeKeys.studentsCount: studentsCount,
         _AttributeKeys.webPages: webPages,
       };

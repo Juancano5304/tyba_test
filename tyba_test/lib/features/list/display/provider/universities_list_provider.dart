@@ -38,6 +38,7 @@ class UniversitiesListProvider extends ChangeNotifier {
         ),
       ),
     ).universities;
+
     final UniversitiesRepositoryImpl repositoryImpl =
         UniversitiesRepositoryImpl(
       remoteDataSource: UniversitiesListRemoteDataSourceImpl(
@@ -71,6 +72,45 @@ class UniversitiesListProvider extends ChangeNotifier {
         universitiesList = newUniversitiesList;
         failure = null;
         listPageViewState = ListPageViewState.completed;
+        notifyListeners();
+      },
+    );
+  }
+
+  Future<void> updateUniversity(UniversityModel universityModel) async {
+    final String universityEndpoint = Endpoints.fromJson(
+      json.decode(
+        await rootBundle.loadString(
+          endpointsAssetsPath,
+        ),
+      ),
+    ).universities;
+
+    final UniversitiesRepositoryImpl repositoryImpl =
+        UniversitiesRepositoryImpl(
+      remoteDataSource: UniversitiesListRemoteDataSourceImpl(
+        dio: Dio(),
+        endpoint: universityEndpoint,
+      ),
+      localDataSource: UniversitiesListLocalDataSourceImpl(
+        sharedPreferences: await SharedPreferences.getInstance(),
+      ),
+      networkInfo: NetworkInfoImpl(
+        DataConnectionChecker(),
+      ),
+    );
+
+    final Either<Failure, bool> failureOrSuccessUpdate =
+        await repositoryImpl.updateUniversity(universityModel);
+
+    failureOrSuccessUpdate.fold(
+      (Failure newFailure) {
+        universitiesList = null;
+        failure = newFailure;
+        notifyListeners();
+      },
+      (bool isUniversityUpdated) {
+        failure = null;
         notifyListeners();
       },
     );
