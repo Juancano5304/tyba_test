@@ -1,9 +1,11 @@
+// ignore_for_file: avoid_dynamic_calls
+
 class Endpoints {
   Endpoints({
     required this.universities,
   });
 
-  factory Endpoints.fromJson(Map<String, dynamic> json) => Endpoints(
+  factory Endpoints.fromJson(dynamic json) => Endpoints(
         universities: json[_AttributeKeys.universities].toString(),
       );
 

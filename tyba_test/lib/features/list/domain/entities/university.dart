@@ -17,23 +17,25 @@ class University extends Equatable {
             .map((String item) => item)
             .toList(),
         name: json[_AttributeKeys.name].toString(),
+        stateProvince: json[_AttributeKeys.stateProvince]?.toString(),
         webPages: (json[_AttributeKeys.webPages] as List<String>)
             .map((String item) => item)
             .toList(),
       );
 
-  final String alphaTwoCode;
   final List<String> domains;
-  final String country;
-  final String? stateProvince;
   final List<String> webPages;
+  final String alphaTwoCode;
+  final String country;
   final String name;
+  final String? stateProvince;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         _AttributeKeys.alphaTwoCode: alphaTwoCode,
         _AttributeKeys.country: country,
         _AttributeKeys.domains: domains,
         _AttributeKeys.name: name,
+        _AttributeKeys.stateProvince: stateProvince,
         _AttributeKeys.webPages: webPages,
       };
 
@@ -43,6 +45,7 @@ class University extends Equatable {
         country,
         domains,
         name,
+        stateProvince,
         webPages,
       ];
 }
