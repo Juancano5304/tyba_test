@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../generated/l10n.dart';
+
 class ListPage extends StatefulWidget {
   const ListPage({Key? key}) : super(key: key);
 
@@ -10,6 +12,7 @@ class ListPage extends StatefulWidget {
 class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         actions: <IconButton>[
@@ -19,7 +22,7 @@ class _ListPageState extends State<ListPage> {
           ),
         ],
         centerTitle: true,
-        title: const Text('List of Colleges'),
+        title: Text(appLocalizations.collegesList),
       ),
     );
   }
