@@ -10,6 +10,17 @@ class ListPage extends StatefulWidget {
 class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        actions: <IconButton>[
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.list),
+          ),
+        ],
+        centerTitle: true,
+        title: const Text('List of Colleges'),
+      ),
+    );
   }
 }
